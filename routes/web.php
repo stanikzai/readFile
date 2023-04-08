@@ -30,11 +30,11 @@ Route::get('/', function () {
     foreach ($repeatedWords as $word => $count) {
         $finalArray[] = [
             'repeatedWord' => $word,
-            'repeatation' => $count,
+            'repetation' => $count,
             'score' => $count/100,
         ];
     }
-    // $finalArray = collect($finalArray)->sortBy('repeatation')->reverse()->toArray();
+    // $finalArray = collect($finalArray)->sortBy('repetation')->reverse()->toArray();
     return $finalArray;
 });
 
@@ -45,7 +45,7 @@ Route::get('readFile', function(){
     $repeatedWords = [];
     foreach ($file as $word) {
         if (isset($repeatedWords[$word])) {
-            $repeatedWords[$word]++;
+            $repeatedWords[$word]+= 1;
         } else {
             $repeatedWords[$word] = 1;
         }
@@ -55,10 +55,10 @@ Route::get('readFile', function(){
     foreach ($repeatedWords as $word => $count) {
         $finalArray[] = [
             'repeatedWord' => $word,
-            'repeatation' => $count,
+            'repetation' => $count,
             'score' => $count/100,
         ];
     }
-    // $finalArray = collect($finalArray)->sortBy('repeatation')->reverse()->toArray();
+    // $finalArray = collect($finalArray)->sortBy('repetation')->reverse()->toArray();
     return $finalArray;
 });
